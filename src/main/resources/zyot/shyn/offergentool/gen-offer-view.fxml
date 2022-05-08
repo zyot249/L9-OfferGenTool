@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zyot.shyn.offergentool.controller.GenOfferController">
+    <Accordion prefHeight="669.0" prefWidth="1024.0" expandedPane="$basicInfoPane">
+        <panes>
+            <TitledPane fx:id="basicInfoPane" animated="false" text="Basic Info">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <Label layoutX="26.0" layoutY="14.0" text="Offer ID" />
+                            <TextField fx:id="offerIdTxt" layoutX="103.0" layoutY="10.0" />
+                            <Label layoutX="26.0" layoutY="47.0" text="Priority" />
+                            <TextField fx:id="priorityTxt" layoutX="103.0" layoutY="43.0" />
+                            <Label layoutX="26.0" layoutY="80.0" text="Offer Name" />
+                            <TextField fx:id="offerNameTxt" layoutX="103.0" layoutY="76.0" />
+                            <Label layoutX="354.0" layoutY="80.0" text="Display Name" />
+                            <TextField fx:id="displayNameTxt" layoutX="443.0" layoutY="76.0" />
+                            <Label layoutX="26.0" layoutY="112.0" text="Offer Content" />
+                            <TextArea fx:id="offerContentTxt" layoutX="103.0" layoutY="112.0" prefHeight="118.0" prefWidth="828.0" />
+                            <Label layoutX="722.0" layoutY="80.0" text="Endow" />
+                            <TextField fx:id="endowTxt" layoutX="782.0" layoutY="76.0" />
+                            <Label layoutX="23.0" layoutY="243.0" text="GUI Style" />
+                            <ComboBox fx:id="guiStyleCbBox" layoutX="103.0" layoutY="239.0" prefWidth="150.0" />
+                            <Label layoutX="362.0" layoutY="243.0" text="Open Type" />
+                            <ComboBox fx:id="openTypeCbBox" layoutX="442.0" layoutY="239.0" prefWidth="150.0" />
+                            <Label layoutX="722.0" layoutY="243.0" text="Location" />
+                            <ComboBox fx:id="locationCbBox" layoutX="781.0" layoutY="239.0" prefWidth="150.0" />
+                            <Label layoutX="26.0" layoutY="282.0" text="Limit Buy" />
+                            <TextField fx:id="limitBuyTxt" layoutX="103.0" layoutY="278.0" />
+                            <Label layoutX="26.0" layoutY="319.0" text="Open Date" />
+                            <DatePicker fx:id="openDatePicker" layoutX="103.0" layoutY="315.0" />
+                            <Label layoutX="362.0" layoutY="319.0" text="End Date" />
+                            <DatePicker fx:id="endDatePicker" layoutX="443.0" layoutY="315.0" />
+                            <Label layoutX="26.0" layoutY="357.0" text="Show Hour" />
+                            <TextField fx:id="showHourTxt" layoutX="103.0" layoutY="353.0" />
+                            <Label layoutX="317.0" layoutY="357.0" text="Count Down Buy Hour" />
+                            <TextField fx:id="countDownBuyHourTxt" layoutX="443.0" layoutY="353.0" />
+                            <Label layoutX="632.0" layoutY="357.0" text="Count Down Not Buy Hour" />
+                            <TextField fx:id="countDownNotBuyHourTxt" layoutX="782.0" layoutY="353.0" />
+                        </children>
+                    </AnchorPane>
+                </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Price &amp; Gifts">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <Label layoutX="14.0" layoutY="14.0" text="Prices" />
+                     <ScrollPane layoutX="97.0" layoutY="40.0" prefHeight="189.0" prefWidth="843.0">
+                        <content>
+                           <VBox fx:id="priceList" prefHeight="187.0" prefWidth="843.0" />
+                        </content>
+                     </ScrollPane>
+                     <Button fx:id="addPriceBtn" layoutX="12.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAddPriceButtonClick" prefHeight="25.0" prefWidth="60.0" text="Add" />
+                     <Button fx:id="removePriceBtn" layoutX="12.0" layoutY="73.0" mnemonicParsing="false" onAction="#onRemovePriceButtonClick" text="Remove" />
+                     <Label layoutX="17.0" layoutY="271.0" text="Gift List" />
+                     <Button fx:id="addGiftBtn" layoutX="15.0" layoutY="297.0" mnemonicParsing="false" onAction="#onAddGiftButtonClick" prefHeight="25.0" prefWidth="60.0" text="Add" />
+                     <Button fx:id="removeGiftBtn" layoutX="15.0" layoutY="330.0" mnemonicParsing="false" onAction="#onRemoveGiftButtonClick" text="Remove" />
+                     <ScrollPane layoutX="97.0" layoutY="296.0" prefHeight="273.0" prefWidth="845.0">
+                        <content>
+                           <VBox fx:id="giftList" prefHeight="272.0" prefWidth="843.0" />
+                        </content>
+                     </ScrollPane>
+                  </children></AnchorPane>
+                </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Condition">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <Label layoutX="14.0" layoutY="14.0" text="Purchased Ruby" />
+                            <Label layoutX="46.0" layoutY="43.0" text="Min" />
+                            <TextField fx:id="purchasedRubyMinTxt" layoutX="99.0" layoutY="39.0" />
+                            <Label layoutX="434.0" layoutY="43.0" text="Max" />
+                            <TextField fx:id="purchasedRubyMaxTxt" layoutX="487.0" layoutY="39.0" />
+                            <Label layoutX="14.0" layoutY="115.0" text="Game Age" />
+                            <Label layoutX="46.0" layoutY="144.0" text="Min" />
+                            <TextField fx:id="gameAgeMinTxt" layoutX="99.0" layoutY="140.0" />
+                            <Label layoutX="434.0" layoutY="144.0" text="Max" />
+                            <TextField fx:id="gameAgeMaxTxt" layoutX="487.0" layoutY="140.0" />
+                        </children>
+                    </AnchorPane>
+                </content>
+            </TitledPane>
+        </panes>
+    </Accordion>
+    <Button fx:id="submitBtn" layoutX="938.0" layoutY="681.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" />
+    <Button fx:id="cancelBtn" layoutX="864.0" layoutY="681.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+    <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="203.0" layoutY="685.0" prefHeight="17.0" prefWidth="562.0" textAlignment="CENTER" textFill="RED">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+</AnchorPane>

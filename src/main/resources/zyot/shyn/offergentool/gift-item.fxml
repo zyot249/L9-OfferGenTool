@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="50.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zyot.shyn.offergentool.controller.GiftItemController">
+    <children>
+        <ComboBox fx:id="itemNameCbBox" layoutX="30.0" layoutY="19.0" prefWidth="150.0" />
+        <TextField fx:id="giftNumTxt" layoutX="420.0" layoutY="19.0" />
+    </children>
+</AnchorPane>
