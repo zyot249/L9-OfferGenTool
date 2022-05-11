@@ -3,6 +3,7 @@ package zyot.shyn.offergentool.controller;
 import com.google.gson.Gson;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import zyot.shyn.offergentool.AppState;
 import zyot.shyn.offergentool.ToolApplication;
@@ -30,7 +33,11 @@ public class HomeViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         offerListView.setItems(AppState.getInstance().getOfferList());
-
+        jsonText.setWrapText(true);
+        jsonText.setEditable(false);
+        jsonText.setOnMouseClicked(event -> {
+                jsonText.selectAll();
+        });
         offerListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<OfferObject>() {
             @Override
             public void changed(ObservableValue<? extends OfferObject> observableValue, OfferObject offerObject, OfferObject t1) {
@@ -48,7 +55,7 @@ public class HomeViewController implements Initializable {
             try {
                 int newOfferId = Integer.parseInt(result.get());
                 OfferObject offerObject = new OfferObject(Integer.parseInt(String.valueOf(newOfferId)));
-                offerObject.info.displayName = "Offer " + newOfferId;
+                offerObject.init();
                 AppState.getInstance().addNewOffer(offerObject);
             } catch (NumberFormatException e) {
 

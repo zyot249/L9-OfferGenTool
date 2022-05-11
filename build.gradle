@@ -46,7 +46,7 @@ test {
 jlink {
     jpackage {
         installerType = "exe"
-        jpackageHome = "C:\\Users\\MY PC\\Downloads\\jdk-17.0.3.1"
+        jpackageHome = "E:\\Develop Environment\\jdk-17.0.3.1"
         icon = "logo.ico"
     }
 }

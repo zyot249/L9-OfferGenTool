@@ -7,4 +7,9 @@ public class OfferRequireObject {
     public OfferRequireObject() {
         super();
     }
+
+    public void init() {
+        purchasedRuby = "0_-1";
+        gameAge = "0_-1";
+    }
 }

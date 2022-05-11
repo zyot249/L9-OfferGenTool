@@ -18,6 +18,12 @@ public class OfferObject {
         this.id = id;
     }
 
+    public void init() {
+        priority = 1;
+        info.init(id);
+        requirement.init();
+    }
+
     @Override
     public String toString() {
         return info.displayName;

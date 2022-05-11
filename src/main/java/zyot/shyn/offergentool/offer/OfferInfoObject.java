@@ -26,4 +26,12 @@ public class OfferInfoObject {
     public OfferInfoObject() {
         super();
     }
+
+    public void init(int id) {
+        displayName = "Offer " + id;
+        priceByTypes.put("PHP_sms", 0);
+        priceByTypes.put("PHP_iap", 0);
+        priceByTypes.put("PHP_ewallet", 0);
+        priceByTypes.put("USD_iap", 0);
+    }
 }
