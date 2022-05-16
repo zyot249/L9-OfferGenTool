@@ -85,6 +85,12 @@ public class GenOfferController implements Initializable {
     private TextField gameAgeMinTxt;
     @FXML
     private TextField gameAgeMaxTxt;
+    @FXML
+    private TextField rubyLastPayMinTxt;
+    @FXML
+    private TextField rubyLastPayMaxTxt;
+    @FXML
+    private TextField lastPayTimeTxt;
 
 
     @Override
@@ -95,7 +101,6 @@ public class GenOfferController implements Initializable {
         initGiftPane();
 
         offerObject = AppState.getInstance().getSelectedOffer();
-        offerIdTxt.setEditable(false);
 
         initDataOfferInfo();
         initDataOfferRequirement();
@@ -181,16 +186,24 @@ public class GenOfferController implements Initializable {
             String[] gameAgeRequire = offerObject.requirement.gameAge.split("_");
             if (gameAgeRequire.length != 2)
                 return;
+            String[] rubyLastPayRequire = offerObject.requirement.rubyInLastPay.split("_");
+            if (rubyLastPayRequire.length != 2)
+                return;
 
             int purchaseMin = Integer.parseInt(purchaseRequire[0]);
             int purchaseMax = Integer.parseInt(purchaseRequire[1]);
             int gameAgeMin = Integer.parseInt(gameAgeRequire[0]);
             int gameAgeMax = Integer.parseInt(gameAgeRequire[1]);
+            int rubyLastPayMin = Integer.parseInt(rubyLastPayRequire[0]);
+            int rubyLastPayMax = Integer.parseInt(rubyLastPayRequire[1]);
 
             purchasedRubyMinTxt.setText(String.valueOf(purchaseMin));
             purchasedRubyMaxTxt.setText(String.valueOf(purchaseMax));
             gameAgeMinTxt.setText(String.valueOf(gameAgeMin));
             gameAgeMaxTxt.setText(String.valueOf(gameAgeMax));
+            rubyLastPayMinTxt.setText(String.valueOf(rubyLastPayMin));
+            rubyLastPayMaxTxt.setText(String.valueOf(rubyLastPayMax));
+            lastPayTimeTxt.setText(String.valueOf(offerObject.requirement.lastPayDays));
         } catch (Exception e) {
 
         }
@@ -376,6 +389,7 @@ public class GenOfferController implements Initializable {
 
     private boolean updateOfferInfo() {
         try {
+            int id = Integer.parseInt(offerIdTxt.getText());
             int priority = Integer.parseInt(priorityTxt.getText());
             String offerName = offerNameTxt.getText();
             String displayName = displayNameTxt.getText();
@@ -395,6 +409,7 @@ public class GenOfferController implements Initializable {
             if (offerName.equals("") || displayName.equals("") || endow.equals("") || content.equals(""))
                 return false;
 
+            offerObject.id = id;
             offerObject.openType = OfferOpenType.getTypeOrDefault(openType, OfferOpenType.OPEN_AT_LOGIN);
             offerObject.priority = priority;
             offerObject.active = true;
@@ -423,9 +438,14 @@ public class GenOfferController implements Initializable {
             int purchaseMax = Integer.parseInt(purchasedRubyMaxTxt.getText());
             int gameAgeMin = Integer.parseInt(gameAgeMinTxt.getText());
             int gameAgeMax = Integer.parseInt(gameAgeMaxTxt.getText());
+            int lastPayDays = Integer.parseInt(lastPayTimeTxt.getText());
+            int rubyInLastPayMin = Integer.parseInt(rubyLastPayMinTxt.getText());
+            int rubyInLastPayMax = Integer.parseInt(rubyLastPayMaxTxt.getText());
 
             offerObject.requirement.purchasedRuby = String.format("%d_%d", purchaseMin, purchaseMax);
             offerObject.requirement.gameAge = String.format("%d_%d", gameAgeMin, gameAgeMax);
+            offerObject.requirement.rubyInLastPay = String.format("%d_%d", rubyInLastPayMin, rubyInLastPayMax);
+            offerObject.requirement.lastPayDays = lastPayDays;
             return true;
         } catch (Exception e) {
             return false;

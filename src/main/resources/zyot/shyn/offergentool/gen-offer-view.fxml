@@ -86,11 +86,21 @@
                             <TextField fx:id="purchasedRubyMinTxt" layoutX="99.0" layoutY="39.0" />
                             <Label layoutX="434.0" layoutY="43.0" text="Max" />
                             <TextField fx:id="purchasedRubyMaxTxt" layoutX="487.0" layoutY="39.0" />
-                            <Label layoutX="14.0" layoutY="115.0" text="Game Age" />
-                            <Label layoutX="46.0" layoutY="144.0" text="Min" />
-                            <TextField fx:id="gameAgeMinTxt" layoutX="99.0" layoutY="140.0" />
-                            <Label layoutX="434.0" layoutY="144.0" text="Max" />
-                            <TextField fx:id="gameAgeMaxTxt" layoutX="487.0" layoutY="140.0" />
+                            <Label layoutX="14.0" layoutY="114.0" text="Game Age" />
+                            <Label layoutX="46.0" layoutY="143.0" text="Min" />
+                            <TextField fx:id="gameAgeMinTxt" layoutX="99.0" layoutY="139.0" />
+                            <Label layoutX="434.0" layoutY="143.0" text="Max" />
+                            <TextField fx:id="gameAgeMaxTxt" layoutX="487.0" layoutY="139.0" />
+
+                            <Label layoutX="14.0" layoutY="214.0" text="Ruby In Last Pay" />
+                            <Label layoutX="46.0" layoutY="243.0" text="Min" />
+                            <TextField fx:id="rubyLastPayMinTxt" layoutX="99.0" layoutY="239.0" />
+                            <Label layoutX="434.0" layoutY="243.0" text="Max" />
+                            <TextField fx:id="rubyLastPayMaxTxt" layoutX="487.0" layoutY="239.0" />
+
+                            <Label layoutX="14.0" layoutY="314.0" text="Last Time Pay" />
+                            <Label layoutX="46.0" layoutY="343.0" text="Day diff" />
+                            <TextField fx:id="lastPayTimeTxt" layoutX="99.0" layoutY="339.0"/>
                         </children>
                     </AnchorPane>
                 </content>
