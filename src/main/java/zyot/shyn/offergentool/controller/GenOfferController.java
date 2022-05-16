@@ -316,12 +316,18 @@ public class GenOfferController implements Initializable {
 
     @FXML
     protected void onSubmitButtonClick() {
-        if (!updateOfferInfo())
+        if (!updateOfferInfo()) {
+            notifyLabel.setText("Please fill all the blank!");
             return;
-        if (!updateOfferRequirement())
+        }
+        if (!updateOfferRequirement()) {
+            notifyLabel.setText("Please fill all the blank!");
             return;
-        if (!updatePriceAndGifts())
+        }
+        if (!updatePriceAndGifts()) {
+            notifyLabel.setText("Please fill all the blank!");
             return;
+        }
 
         AppState.getInstance().updateOfferInfo(offerObject);
         AppState.getInstance().closeSecondWindow();
@@ -348,6 +354,7 @@ public class GenOfferController implements Initializable {
             offerObject.info.priceByTypes.put(currency + "_" + payType, cost);
         }
 
+        offerObject.info.giftList.clear();
         for (Node node : giftList.getChildren()) {
             AnchorPane pane = (AnchorPane) node;
             String itemName = "";
