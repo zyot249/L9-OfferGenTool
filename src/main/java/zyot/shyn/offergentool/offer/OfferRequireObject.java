@@ -13,5 +13,6 @@ public class OfferRequireObject {
     public void init() {
         purchasedRuby = "0_-1";
         gameAge = "0_-1";
+        rubyInLastPay = "0_-1";
     }
 }
