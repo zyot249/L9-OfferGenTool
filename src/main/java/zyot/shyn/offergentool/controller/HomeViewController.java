@@ -1,6 +1,7 @@
 package zyot.shyn.offergentool.controller;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -19,7 +20,9 @@ import zyot.shyn.offergentool.ToolApplication;
 import zyot.shyn.offergentool.offer.OfferObject;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -34,7 +37,7 @@ public class HomeViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         offerListView.setItems(AppState.getInstance().getOfferList());
         jsonText.setWrapText(true);
-        jsonText.setEditable(false);
+//        jsonText.setEditable(false);
         jsonText.setOnMouseClicked(event -> {
                 jsonText.selectAll();
         });
@@ -101,5 +104,21 @@ public class HomeViewController implements Initializable {
             jsonText.setText(e.getMessage());
         }
 
+    }
+
+    @FXML
+    public void onParseJsonButtonClick() {
+        HashMap<Integer, OfferObject> offerList = new HashMap<>();
+        String json = jsonText.getText();
+        if (json == null || json.equals(""))
+            return;
+
+        Type typeToken = new TypeToken<HashMap<String, OfferObject>>() {
+        }.getType();
+        Gson gson = new Gson();
+        offerList = gson.fromJson(json, typeToken);
+        if (offerList != null) {
+            AppState.getInstance().setOfferList(new ArrayList<>(offerList.values()));
+        }
     }
 }

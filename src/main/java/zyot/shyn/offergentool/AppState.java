@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 import zyot.shyn.offergentool.offer.OfferObject;
 
+import java.util.ArrayList;
+
 public class AppState {
     private static final Object lock = new Object();
     private static AppState instance = null;
@@ -31,6 +33,13 @@ public class AppState {
 
     public ObservableList<OfferObject> getOfferList() {
         return offerList;
+    }
+
+    public void setOfferList(ArrayList<OfferObject> offers) {
+        if (offers == null || offers.size() == 0)
+            return;
+        offerList.clear();
+        offerList.addAll(offers);
     }
 
     public void addNewOffer(OfferObject offerObject) {

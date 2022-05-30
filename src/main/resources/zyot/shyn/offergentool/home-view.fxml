@@ -7,18 +7,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zyot.shyn.offergentool.controller.HomeViewController">
-   <children>
-      <Label layoutX="14.0" text="Offer List">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <ListView fx:id="offerListView" layoutX="73.0" layoutY="53.0" prefHeight="581.0" prefWidth="898.0" />
-      <Button fx:id="genJsonBtn" layoutX="907.0" layoutY="662.0" mnemonicParsing="false" onAction="#onGenJsonButtonClick" text="Gen Json" />
-      <Button fx:id="addOfferBtn" layoutX="14.0" layoutY="53.0" mnemonicParsing="false" onAction="#onAddOfferButtonClick" text="Add" />
-      <Button fx:id="editOfferBtn" layoutX="14.0" layoutY="85.0" mnemonicParsing="false" onAction="#onEditOfferButtonClick" text="Edit" />
-      <Button fx:id="deleteOfferBtn" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#onRemoveOfferButtonClick" text="Delete" />
-      <TextArea fx:id="jsonText" layoutX="73.0" layoutY="641.0" prefHeight="65.0" prefWidth="820.0" />
-   </children>
+<AnchorPane prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="zyot.shyn.offergentool.controller.HomeViewController">
+    <children>
+        <Label layoutX="14.0" text="Offer List">
+            <font>
+                <Font size="36.0"/>
+            </font>
+        </Label>
+        <ListView fx:id="offerListView" layoutX="73.0" layoutY="53.0" prefHeight="581.0" prefWidth="898.0"/>
+        <Button fx:id="genJsonBtn" layoutX="907.0" layoutY="640.0" mnemonicParsing="false"
+                onAction="#onGenJsonButtonClick" text="Gen Json"/>
+        <Button fx:id="parseJsonBtn" layoutX="907.0" layoutY="675.0" mnemonicParsing="false"
+                onAction="#onParseJsonButtonClick" text="Parse Json"/>
+        <Button fx:id="addOfferBtn" layoutX="14.0" layoutY="53.0" mnemonicParsing="false"
+                onAction="#onAddOfferButtonClick" text="Add"/>
+        <Button fx:id="editOfferBtn" layoutX="14.0" layoutY="85.0" mnemonicParsing="false"
+                onAction="#onEditOfferButtonClick" text="Edit"/>
+        <Button fx:id="deleteOfferBtn" layoutX="14.0" layoutY="118.0" mnemonicParsing="false"
+                onAction="#onRemoveOfferButtonClick" text="Delete"/>
+        <TextArea fx:id="jsonText" layoutX="73.0" layoutY="641.0" prefHeight="65.0" prefWidth="820.0"/>
+    </children>
 </AnchorPane>
