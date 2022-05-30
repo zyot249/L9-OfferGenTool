@@ -1,6 +1,6 @@
 package zyot.shyn.offergentool.offer;
 
-public class OfferObject {
+public class OfferObject implements Comparable<OfferObject>{
     public int id = -1;
     public boolean active = false;
     public int priority = 0;       // offer with bigger priority will be shown first
@@ -27,5 +27,11 @@ public class OfferObject {
     @Override
     public String toString() {
         return info.displayName;
+    }
+
+
+    @Override
+    public int compareTo(OfferObject o) {
+        return id - o.id;
     }
 }

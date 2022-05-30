@@ -22,10 +22,7 @@ import zyot.shyn.offergentool.offer.OfferObject;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class HomeViewController implements Initializable {
     @FXML

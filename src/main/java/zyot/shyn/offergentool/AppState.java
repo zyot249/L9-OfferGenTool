@@ -40,10 +40,12 @@ public class AppState {
             return;
         offerList.clear();
         offerList.addAll(offers);
+        offerList.sort(OfferObject::compareTo);
     }
 
     public void addNewOffer(OfferObject offerObject) {
         offerList.add(offerObject);
+        offerList.sort(OfferObject::compareTo);
     }
 
     public void removeOffer(OfferObject offerObject) {
@@ -71,6 +73,7 @@ public class AppState {
                 break;
             }
         }
+        offerList.sort(OfferObject::compareTo);
     }
 
     public void closeSecondWindow() {
